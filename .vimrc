@@ -1,59 +1,42 @@
-"Format json files
-command! Jsonfmt %!python -m json.tool
-
-"Call sudo after opening a file without sudo
-cmap w!! w !sudo tee %
-
-"Faster vertical moving
-nnoremap J 10j
-nnoremap K 10k
+nnoremap J 8j
+nnoremap K 8k
+ 
+"Centered vertical movement
+nnoremap <C-j> jzz
+nnoremap <C-k> kzz
 
 "Pressing Esc sucks
 imap jj <Esc>
-map <C-]> <Esc>
+imap Jj <Esc>
+imap jJ <Esc>
 
-"Navigate between tabs
-map <C-,> :tabp<Enter>
-map <C-.> :tabn<Enter>
+"Keep buffer at bottom and top of files while scrolling
+set scrolloff=5
 
-"Close and write files
-map qqq :wq<Enter>
+"Don't jump around when scrolling vertically
+set nostartofline
 
-"Remove all whitespace on write
-autocmd BufWritePre * :%s/\s\+$//e
+"Replace ; with : in normal mode
+nnoremap ; :
 
 "Common mistakes
 :command W w
 :command Q q
 :command Wq wq
 :command WQ wq
-
-"Pathogen
-execute pathogen#infect()
-
-"Solarized
-syntax enable
-set background=dark
-colorscheme default
-
-"ctrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+:command Wqa wqa
+:command WQa wqa
+:command WQA wqa
 
 "Random stuff that should be default in vim
-set autoindent
-set colorcolumn=80
-set expandtab
-set number
-set shiftwidth=4
-set smartindent
-set smarttab
-set tabstop=2
-set title
 :set cursorline
 :set relativenumber
 :set ruler
-filetype on
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+set colorcolumn=80
+set number
 
-
-
+set autoindent
+set shiftwidth=4
+set smartindent
+set tabstop=4
+set title
